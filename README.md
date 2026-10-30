@@ -1,24 +1,56 @@
 # Agent Blueprints
 
-High-performance AI agent skill definitions and system prompts for the Codex CLI. Optimized for senior-level engineering workflows, these blueprints enforce strict architectural standards, performance guardrails (N+1 prevention), and robust observability (logging/CLI parity) for complex platforms like Magento 2. Professional-grade AI orchestration.
+Reusable skills for Magento Open Source and Adobe Commerce work. Each skill captures decisions and pitfalls specific to a task, while leaving implementation size and tooling to the project.
 
-## What this repo is
-- A curated library of agent skills and system prompts
-- Opinionated guidance for senior-level engineering workflows
-- A place to codify repeatable, high-signal agent behavior
+## Skills
 
-## Structure
-- `skills/` — Skill definitions and supporting references
+| Skill | Use for |
+| --- | --- |
+| [magento-backend-development](skills/magento-backend-development/SKILL.md) | Modules, PHP services, APIs, plugins, observers, and jobs |
+| [magento-frontend-development](skills/magento-frontend-development/SKILL.md) | Storefront layouts, templates, styling, and interactions |
+| [magento-code-review](skills/magento-code-review/SKILL.md) | Actionable findings in code changes |
+| [magento-operations](skills/magento-operations/SKILL.md) | Runtime diagnosis, caching, queues, Cron, and deployments |
+| [magento-database](skills/magento-database/SKILL.md) | Query plans, locks, schema changes, and data repairs |
+| [magento-search](skills/magento-search/SKILL.md) | Catalog search, indexing, relevance, and search latency |
+| [magento-testing](skills/magento-testing/SKILL.md) | Regression coverage, test failures, and QA validation |
+| [magento-solution-design](skills/magento-solution-design/SKILL.md) | Feasibility, technical design, tradeoffs, and estimates |
+| [magento-security-audit](skills/magento-security-audit/SKILL.md) | Security assessments, hardening, and incident investigation |
 
-## Usage
-1. Add or update skill folders under `skills/`.
-2. Keep each skill self-contained with a `SKILL.md` entry point.
-3. Prefer concise, deterministic instructions that are easy to apply.
+## Use with Codex
 
-## Conventions
-- Keep instructions actionable and testable.
-- Avoid duplicating guidance across skills; link when needed.
-- Favor explicit constraints over broad suggestions.
+Each `skills/<name>/` folder is a self-contained skill with a `SKILL.md` entry point. Copy selected folders into `.agents/skills/` in a Magento project, or `~/.agents/skills/` for use across projects. For example, from the target project:
+
+```bash
+mkdir -p .agents/skills
+cp -R /path/to/agent-blueprints/skills/magento-backend-development .agents/skills/
+```
+
+Replace `/path/to/agent-blueprints` with your checkout path. A symlink to an individual skill folder also works for local development; commit copied folders when teammates need a portable setup.
+
+Codex can select installed skills by their descriptions, or you can invoke one explicitly:
+
+```text
+Use $magento-backend-development to fix duplicate processing in this import job.
+Use $magento-code-review to review the checkout changes on this branch.
+```
+
+Select skills for the work at hand; they are not a required sequence of roles. Ordinary implementation can include testing without requiring a separate QA workflow. See the [official skill documentation](https://learn.chatgpt.com/docs/build-skills) for discovery and installation details.
+
+The earlier flat Markdown role prompts have been replaced by these skill folders and task names. Update any saved prompts or integrations referencing the old names or paths.
+
+## Project conventions
+
+Keep durable project-specific instructions in the Magento project's `AGENTS.md`: module namespace and ownership, supported versions, local/container command wrappers, style rules, build/test commands, and boundaries for environment access. Record deliberate defaults there too, such as required feature toggles or manual-only database writes.
+
+Each skill can be copied on its own and follows project instructions when present. The skills do not assume a particular theme, infrastructure topology, logging setup, or test framework version. Documentation, abstractions, CLI commands, and operational tooling should follow the change's needs and the project's established conventions.
+
+## Maintaining the library
+
+- Add instructions that prevent a concrete mistake or encode a deliberate workflow; omit generic expertise claims and repeated checklists.
+- Keep descriptions precise enough to select the right task. Add supporting references or scripts only when they have a concrete use.
+- Verify technical guidance against installed source and official release-specific documentation. Do not freeze a universal dependency version into a skill.
+- Validate skill frontmatter and links after edits. Evaluate meaningful behavior with realistic requests, such as a small bug fix, a new integration, a storefront change, and a code review. Check that each gets an appropriate implementation and verification scope.
 
 ## License
-MIT — see `LICENSE`.
+
+MIT — see [LICENSE](LICENSE).

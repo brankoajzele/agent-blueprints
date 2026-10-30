@@ -47,6 +47,14 @@ Keep durable project-specific instructions in the Magento project's `AGENTS.md`:
 
 Each skill can be copied on its own and follows project instructions when present. The skills do not assume a particular theme, infrastructure topology, logging setup, or test framework version. Documentation, abstractions, CLI commands, and operational tooling should follow the change's needs and the project's established conventions.
 
+## Warden project template
+
+Use [templates/magento-warden/AGENTS.md](templates/magento-warden/AGENTS.md) as a starting point for Magento projects running in Warden. Copy it to the target project's root as `AGENTS.md`, or merge it into existing instructions. Check the project's mounts, routing, service overrides, and test commands when adapting it.
+
+The template covers container-only PHP execution, database/search access, storefront checks, browser testing, and logs. It contains no customer names, custom module identifiers, catalog examples, or machine-specific paths. Environment access belongs in project instructions because it applies across tasks; install the skills separately rather than maintaining a static skill catalog in `AGENTS.md`.
+
+See [Warden usage](https://docs.warden.dev/usage.html), [environment customization](https://docs.warden.dev/environments/customizing.html), and [Codex project instructions](https://learn.chatgpt.com/docs/agent-configuration/agents-md) for the underlying configuration and discovery behavior.
+
 ## Maintaining the library
 
 - Add instructions that prevent a concrete mistake or encode a deliberate workflow; omit generic expertise claims and repeated checklists.

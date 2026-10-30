@@ -12,8 +12,10 @@ Reusable skills for Magento Open Source and Adobe Commerce work. Each skill capt
 | [magento-operations](skills/magento-operations/SKILL.md) | Runtime diagnosis, caching, queues, Cron, and deployments |
 | [magento-database](skills/magento-database/SKILL.md) | Query plans, locks, schema changes, and data repairs |
 | [magento-search](skills/magento-search/SKILL.md) | Catalog search, indexing, relevance, and search latency |
-| [magento-testing](skills/magento-testing/SKILL.md) | Regression coverage, test failures, and QA validation |
+| [magento-testing](skills/magento-testing/SKILL.md) | Test strategy, unit/integration/API coverage, and backend test failures |
+| [magento-browser-testing](skills/magento-browser-testing/SKILL.md) | Playwright customer journeys, local scenario data, and optional reusable browser tests |
 | [magento-solution-design](skills/magento-solution-design/SKILL.md) | Feasibility, technical design, tradeoffs, and estimates |
+| [magento-upgrade-assessment](skills/magento-upgrade-assessment/SKILL.md) | Target-release compatibility, upgrade blockers, and validation planning |
 | [magento-security-audit](skills/magento-security-audit/SKILL.md) | Security assessments, hardening, and incident investigation |
 
 ## Use with Codex
@@ -32,6 +34,7 @@ Codex can select installed skills by their descriptions, or you can invoke one e
 ```text
 Use $magento-backend-development to fix duplicate processing in this import job.
 Use $magento-code-review to review the checkout changes on this branch.
+Use $magento-browser-testing to test this feature as a customer with local sample data and save reusable developer-only tests in the module.
 ```
 
 Select skills for the work at hand; they are not a required sequence of roles. Ordinary implementation can include testing without requiring a separate QA workflow. See the [official skill documentation](https://learn.chatgpt.com/docs/build-skills) for discovery and installation details.

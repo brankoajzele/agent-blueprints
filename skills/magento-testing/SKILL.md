@@ -1,19 +1,19 @@
 ---
 name: magento-testing
-description: Design, add, or debug Magento regression tests and test execution. Use when the task centers on test coverage, a failing suite, or QA validation of a feature.
+description: Design, add, or debug Magento unit, integration, and API tests and choose regression coverage. Use for test strategy or backend test failures; browser-driven customer journeys belong to browser testing.
 ---
 
 # Magento testing
 
 ## Choose the test boundary
 
-Read the changed behavior, existing tests, Composer lockfile, and test configuration. Use the installed PHPUnit and project runner; do not assume a framework version from the Magento release family alone.
+Read the changed behavior, existing tests, Composer lockfile, and test configuration. Use the installed PHPUnit and project runner; do not assume a framework version from the Magento release family alone. For Playwright customer journeys and local browser scenario data, use `magento-browser-testing` when available; backend tests remain independently runnable.
 
 Test the behavior most likely to regress:
 
 - Use unit tests for calculations, decisions, mappings, and error handling that can be isolated from Magento runtime.
 - Use integration tests for persistence, declarative schema/data patches, DI configuration, plugins/events, and store-scoped behavior that mocks cannot establish.
-- Use API or storefront tests for authorization, request contracts, customer flows, rendering, and cache/private-content behavior when those boundaries matter.
+- Use API tests for authorization and request contracts, and browser tests when customer interactions, rendering, or cache/private-content behavior are the boundary that matters.
 
 Choose coverage by risk. An `Api/` implementation does not automatically need a mock-heavy unit test; a thin adapter may be better covered through integration.
 

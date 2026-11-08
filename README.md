@@ -10,6 +10,7 @@ Reusable skills for Magento Open Source and Adobe Commerce work. Each skill capt
 | [magento-frontend-development](skills/magento-frontend-development/SKILL.md) | Storefront layouts, templates, styling, and interactions |
 | [magento-code-review](skills/magento-code-review/SKILL.md) | Actionable findings in code changes |
 | [magento-operations](skills/magento-operations/SKILL.md) | Runtime diagnosis, caching, queues, Cron, and deployments |
+| [magento-warden-setup](skills/magento-warden-setup/SKILL.md) | Local Warden setup from a clone and database dump, multi-store routing, and verified access |
 | [magento-database](skills/magento-database/SKILL.md) | Query plans, locks, schema changes, and data repairs |
 | [magento-search](skills/magento-search/SKILL.md) | Catalog search, indexing, relevance, and search latency |
 | [magento-testing](skills/magento-testing/SKILL.md) | Test strategy, unit/integration/API coverage, and backend test failures |
@@ -34,6 +35,7 @@ Codex can select installed skills by their descriptions, or you can invoke one e
 ```text
 Use $magento-backend-development to fix duplicate processing in this import job.
 Use $magento-code-review to review the checkout changes on this branch.
+Use $magento-warden-setup to set up this local project from src/ and the encrypted database dump in its root.
 Use $magento-browser-testing to test this feature as a customer with local sample data and save reusable developer-only tests in the module.
 ```
 

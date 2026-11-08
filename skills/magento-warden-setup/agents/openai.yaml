@@ -1,0 +1,4 @@
+interface:
+  display_name: "Magento Warden Setup"
+  short_description: "Set up local Magento from a clone and database dump"
+  default_prompt: "Use $magento-warden-setup to configure this local Magento project from src/ and the database dump in its root, then verify its storefronts and admin."

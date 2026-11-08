@@ -35,7 +35,7 @@ Codex can select installed skills by their descriptions, or you can invoke one e
 ```text
 Use $magento-backend-development to fix duplicate processing in this import job.
 Use $magento-code-review to review the checkout changes on this branch.
-Use $magento-warden-setup to set up this local project from src/ and the encrypted database dump in its root.
+Use $magento-warden-setup to set up this project. Code is in `src/`; the database dump is `magento.gpg`.
 Use $magento-browser-testing to test this feature as a customer with local sample data and save reusable developer-only tests in the module.
 ```
 
